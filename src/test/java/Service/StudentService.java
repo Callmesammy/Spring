@@ -4,10 +4,14 @@
  */
 package Service;
 
+import Entity.Student;
+import java.util.List;
+
 /**
  *
  * @author HP
  */
 public interface StudentService {
+    List<Student> getAllStudents();
     
 }
