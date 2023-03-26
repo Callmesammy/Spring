@@ -4,7 +4,10 @@
  */
 package Controller;
 
+import Service.StudentService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
@@ -13,4 +16,18 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class StudentController {
     
+    public StudentService studentService;
+    
+    public StudentController(StudentService studentService){
+        super();
+        this.studentService = studentService;
+    }
+    
+    
+    //handler method to handle the return mode 
+    @GetMapping("/students")
+    public String listStudent(Model model){
+        model.addAttribute("students", studentService.getAllStudents());
+        return "students";
+    }
 }
